@@ -1,0 +1,23 @@
+<h1>All songs</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Release Year</th>
+        <th>Artist</th>
+        <th>Genre</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @songs.each do |song| %>
+      <tr>
+        <td><%= song.title %></td>
+        <td><%= song.release_year %></td>
+        <td><%= song.artist_name %></td>
+        <td><%= song.genre %></td>
+        <td><%= button_to "Delete", song, method: :delete, data: { confirm: "Do you really want to delete #{song.title} from your playlist?" } %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
